@@ -1,0 +1,6 @@
+<root name="config.xml">
+	<subject name="C++ Quiz" code="cpp" location="https://github.com/froist/" filename="question.xml" 
+		new_filename="question.xml" />
+	<subject name="Java Quiz" code="java" location="https://github.com/froist" filename="question.xml" 
+		new_filename="question.xml" />
+</root>
