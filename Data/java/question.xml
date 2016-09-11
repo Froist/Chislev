@@ -1,0 +1,46 @@
+<Root total_element="1">
+	<Element index="1">
+	<Explanation>
+Since a has static storage duration and no initializer, it is guaranteed to be zero-initialized. Had a been defined as a local non-static variable inside main(), this would not have happened.
+
+Note: int a has static storage duration because it is declared at namespace scope. It does not need to have static in front of it, that would only denote internal linkage.
+
+
+	</Explanation>
+	<Hint>
+Is a static? And what do we mean by &#x22;static&#x22; anyway? Think about the difference between static storage duration and external linkage.
+
+
+	</Hint>
+	<Answer correct_option="1" answer="12234"/>
+	<Question>
+According to the C++11 standard, what is output of the following code?
+
+
+	</Question>
+	<Options>
+The program is guaranteed to output
+The program has a compilation error
+The program is unspecified/implementation defined
+The program is undefined
+
+
+	</Options>
+	<Code>
+#include &#x3C;iostream&#x3E;
+
+int a;
+
+int main () {
+    std::cout &#x3C;&#x3C; a;
+}
+
+
+	</Code>
+	<Level>
+Intermediate
+
+
+	</Level>
+	</Element>
+	</Root>
