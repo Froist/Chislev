@@ -1,0 +1,399 @@
+<Root total_element="7">
+	<Element index="1">
+	<Explanation>
+Since a has static storage duration and no initializer, it is guaranteed to be zero-initialized. Had a been defined as a local non-static variable inside main(), this would not have happened.
+
+Note: int a has static storage duration because it is declared at namespace scope. It does not need to have static in front of it, that would only denote internal linkage.
+
+
+	</Explanation>
+	<Hint>
+Is a static? And what do we mean by &#x22;static&#x22; anyway? Think about the difference between static storage duration and external linkage.
+
+
+	</Hint>
+	<Answer correct_option="1" answer="12234"/>
+	<Question>
+According to the C++11 standard, what is output of the following code?
+
+
+	</Question>
+	<Options>
+The program is guaranteed to output
+The program has a compilation error
+The program is unspecified/implementation defined
+The program is undefined
+
+
+	</Options>
+	<Code>
+#include &#x3C;iostream&#x3E;
+
+int a;
+
+int main () {
+    std::cout &#x3C;&#x3C; a;
+}
+
+
+	</Code>
+	<Level>
+Intermediate
+
+
+	</Level>
+	</Element>
+	<Element index="2">
+	<Explanation>
+The first line in main(), X x; is straightforward, it calls the default constructor.
+
+The next two lines is the heart of the question: The difference between X y(x) and X z = y is not that the first calls the copy constructor, and the second calls the copy assignment operator. The difference is that the first is direct initialization (&#xA7;8.5.15 in the standard) and the second is copy initialization (&#xA7;8.5.14).
+
+&#xA7;8.5.16 says: &#x22;If the initialization is direct-initialization, or if it is copy-initialization where the (...) source type is the same class as (...) the class of the destination, constructors are considered.&#x22; So both our cases use the copy constructor.
+
+Not until z = x; do we have an actual assignment that uses the assignment operator. See http://stackoverflow.com/questions/1051379/is-there-a-difference-in-c-between-copy-initialization-and-direct-initializati/1051468#1051468 for a more detailed discussion of direct vs. copy initialization.
+
+
+	</Explanation>
+	<Hint>
+What is the difference between direct initialization and copy initialization? Do they in any way relate to the copy constructor and copy assignment operator?
+
+
+	</Hint>
+	<Answer correct_option="2"/>
+	<Question>
+According to the C++11 standard, what is output of the following code?
+
+
+	</Question>
+	<Options>
+The program is guaranteed to output
+The program has a compilation error
+The program is unspecified/implementation defined
+The program is undefined
+
+
+	</Options>
+	<Code>
+#include &#x3C;iostream&#x3E;
+
+struct X {
+  X() { std::cout &#x3C;&#x3C; &#x22;a&#x22;; }
+  X(const X &#x26;x) { std::cout &#x3C;&#x3C; &#x22;b&#x22;; }
+  const X &#x26;operator=(const X &#x26;x) {
+    std::cout &#x3C;&#x3C; &#x22;c&#x22;;
+    return *this;
+  }
+};
+
+int main() {
+  X x;
+  X y(x);
+  X z = y;
+  z = x;
+}
+
+
+	</Code>
+	<Level>
+Intermediate
+
+
+	</Level>
+	</Element>
+	<Element index="3">
+	<Explanation>
+As defined in &#xA7;3.3.2&#xB6;1, the point of name declaration is after its complete declarator and before its initialisation. This means that line 4 is valid C++, because it&#x27;s possible to initialise the variable p with the address of an existing variable, even if it is its own address.
+
+The value of p is unknown, but can not be a null pointer value. The cast must thus evaluate to 1 and initialise the temporary bool as true.
+
+
+	</Explanation>
+	<Answer correct_option="3"/>
+	<Question>
+According to the C++11 standard, what is output of the following code?
+
+
+	</Question>
+	<Options>
+The program is guaranteed to output
+The program has a compilation error
+The program is unspecified/implementation defined
+The program is undefined
+
+
+	</Options>
+	<Code>
+#include &#x3C;iostream&#x3E;
+
+int main() {
+  void * p = &#x26;p;
+  std::cout &#x3C;&#x3C; bool(p);
+}
+
+
+	</Code>
+	<Level>
+Intermediate
+
+
+	</Level>
+	</Element>
+	<Element index="4">
+	<Explanation>
+This question The program is guaranteed to output:.
+
+Its output is &#x22;TS&#x22;.
+
+Explanation
+
+&#xA7;14.6&#xB6;9 states: &#x22;When looking for the declaration of a name used in a template definition, the usual lookup rules (&#xA7;3.4.1, &#xA7;3.4.2) are used for non-dependent names. The lookup of names dependent on the template parameters is postponed until the actual template argument is known (&#xA7;14.6.2).&#x22;
+
+The first call to adl is a non-dependent call, so it is looked up at the time of definition of the function template. The resolution of the second call is deferred until the template is instantiated because it depends on a template parameter.
+
+    template&#x3C;typename T&#x3E; void call_adl_function(T t)
+    {
+        adl(S()); // Independent, looks up adl now.
+        adl(t); // Dependent, looks up adl later.
+    }
+
+When adl is being looked up at the time of definition of the function template, the only version of adl that exists is the templated adl(T). Specifically, adl(S) does not exist yet, and is not a candidate.
+
+Note: At the time of writing, this program does not confirm to the standard in some recent versions of Visual Studio&#x27;s C++ compiler.
+
+
+	</Explanation>
+	<Hint>
+Unqualified names are resolved at different times depending on whether they are dependent or independent on a template parameter.
+
+
+	</Hint>
+	<Question>
+According to the C++11 standard, what is output of the following code?
+
+
+	</Question>
+	<Answer correct_option="4"/>
+	<Options>
+The program is guaranteed to output
+The program has a compilation error
+The program is unspecified/implementation defined
+The program is undefined
+
+
+	</Options>
+	<Code>
+#include &#x3C;iostream&#x3E;
+using namespace std;
+
+template&#x3C;typename T&#x3E;
+void adl(T)
+{
+  cout &#x3C;&#x3C; &#x22;T&#x22;;
+}
+
+struct S
+{
+};
+
+template&#x3C;typename T&#x3E;
+void call_adl(T t)
+{
+  adl(S());
+  adl(t);
+}
+
+void adl(S)
+{
+  cout &#x3C;&#x3C; &#x22;S&#x22;;
+}
+
+int main ()
+{
+  call_adl(S());
+}
+
+
+	</Code>
+	<Level>
+Hard
+
+
+	</Level>
+	</Element>
+	<Element index="5">
+	<Explanation>
+Sneaky ambiguous function call.
+
+The statement print(0); is ambiguous due to overload resolution rules. Both print functions are viable, but for the compiler to pick one, one of them has to have a better conversion sequence than the other. &#xA7;13.3.3&#xB6;2: &#x22;If there is exactly one viable function that is a better function than all other viable functions, then it is the one selected by overload resolution; otherwise the call is ill-formed&#x22;.
+
+(a) Because 0 is a null pointer constant[1], it can be converted implicitly into any pointer type with a single conversion.
+
+(b) Because 0 is of type int, it can be converted implicitly to a short with a single conversion too.
+
+In our case, both are standard conversion sequences with a single conversion of &#x22;conversion rank&#x22;. Since no function is better than the other, the call is ill-formed.
+
+[1] &#xA7;4.10&#xB6;1 A null pointer constant is an integral constant expression (5.19) prvalue of integer type that evaluates to zero(...) A null pointer constant can be converted to a pointer type.
+
+
+	</Explanation>
+	<Hint>
+Which type should 0 be converted to? Is one conversion better than the 
+other?
+
+
+	</Hint>
+	<Answer correct_option="1" answer="89Ab"/>
+	<Question>
+According to the C++11 standard, what is output of the following code?
+
+
+	</Question>
+	<Options>
+The program is guaranteed to output
+The program has a compilation error
+The program is unspecified/implementation defined
+The program is undefined
+
+
+	</Options>
+	<Code>
+#include &#x3C;iostream&#x3E;
+
+void print(char const *str) { std::cout &#x3C;&#x3C; str; }
+void print(short num) { std::cout &#x3C;&#x3C; num; }
+
+int main() {
+  print(&#x22;abc&#x22;);
+  print(0);
+  print(&#x27;A&#x27;);
+}
+
+
+	</Code>
+	<Level>
+Beginner
+
+
+	</Level>
+	</Element>
+	<Element index="6">
+	<Explanation>
+Since C++11 (&#xA7;23.3.6.2&#xB6;3 in the standard), std::vector has a one parameter constructor
+
+explicit vector( size_type n )
+
+which constructs a vector with n value-initialized elements. Each value-initialization calls the default Foo constructor, resulting in the output aaaaa .
+
+The &#x22;trick&#x22; is, that before C++11, std::vector had a 2 parameter constructor ( + allocator ), which constructed the container with n copies of the second parameter, which is defaulted to T().
+
+So this code before C++11 would output abbbbb, because the call would be equivalent to std::vector&#x3C;Foo&#x3E; bar(5,T()).
+
+
+	</Explanation>
+	<Hint>
+Which vector constructor will be called?
+
+
+	</Hint>
+	<Answer correct_option="3"/>
+	<Question>
+According to the C++11 standard, what is output of the following code?
+
+
+	</Question>
+	<Options>
+The program is guaranteed to output
+The program has a compilation error
+The program is unspecified/implementation defined
+The program is undefined
+
+
+	</Options>
+	<Code>
+#include &#x3C;iostream&#x3E;
+#include &#x3C;vector&#x3E;
+
+struct Foo
+{
+    Foo() { std::cout&#x3C;&#x3C;&#x22;a&#x22;; }
+    Foo(const Foo&#x26;) { std::cout&#x3C;&#x3C;&#x22;b&#x22;; }
+};
+
+int main()
+{
+    std::vector&#x3C;Foo&#x3E; bar(5);
+}
+
+
+	</Code>
+	<Level>
+Beginner
+
+
+	</Level>
+	</Element>
+	<Element index="7">
+	<Explanation>
+The T&#x26;&#x26; in the the templated functions do not necessarily denote an rvalue reference, it depends on the type that is used to instantiate the template. If instantiated with an lvalue, it collapses to an lvalue reference, if instantiated with an rvalue, it collapses to an rvalue reference. See note [1].
+
+Scott Meyers has written a very good article about this, where he introduces the concept of &#x22;universal references&#x22; (note that this is not C++ standard wording) http://isocpp.org/blog/2012/11/universal-references-in-c11-scott-meyers
+
+In this example, all three functions are called once with an lvalue and once with an rvalue. In all cases, calling with an lvalue (i) collapses T&#x26;&#x26; x to T&#x26; x (an lvalue reference), and calling with an rvalue (20) collapses T&#x26;&#x26; x to T&#x26;&#x26; x (an rvalue reference). Inside the functions, x itself is always an lvalue, no matter if its type is an rvalue reference or an lvalue reference.
+
+-For the first example, y(int&#x26;) is called for both cases. Output: 11.
+-For the second example, move(x) obtains an rvalue reference, and y(int&#x26;&#x26;)is called for both cases. Output: 22.
+-For the third example, forward&#x3C;T&#x3E;(x) obtains an lvalue reference when x is an lvalue reference, and an rvalue reference when x is an rvalue reference, resulting in first a call to y(int&#x26;)and then a call to y(int&#x26;&#x26;). Output: 12.
+
+Note [1]: &#xA7;8.3.2&#xB6;6 in the standard: &#x22;If a (...) type template-parameter (&#xA7;14.3.1) (...) denotes a type TR that is a reference to a type T, an attempt to create the type &#x201C;lvalue reference to cv TR&#x201D; creates the type &#x201C;lvalue reference to T&#x201D;, while an attempt to create the type &#x201C;rvalue reference to cv TR&#x201D; creates the type TR.&#x22; The example at the end of that paragraph is is worth a look.
+
+Note from the contributor: This demonstrates Scott Meyers&#x27;s advice that use std::forward for universal references, and std::move for rvalue references.
+
+	</Explanation>
+	<Hint>
+The T&#x26;&#x26; in the the templated functions do not necessarily denote an rvalue reference, it depends on the type that is used to instantiate the template. If instantiated with an lvalue, it collapses to an lvalue reference, if instantiated with an rvalue, it collapses to an rvalue reference.
+
+
+	</Hint>
+	<Question>
+According to the C++11 standard, what is output of the following code?
+
+
+	</Question>
+	<Options>
+The program is guaranteed to output
+The program has a compilation error
+The program is unspecified/implementation defined
+The program is undefined
+
+
+	</Options>
+	<Code>
+#include &#x3C;iostream&#x3E;
+#include &#x3C;utility&#x3E;
+
+int y(int &#x26;) { return 1; }
+int y(int &#x26;&#x26;) { return 2; }
+
+template &#x3C;class T&#x3E; int f(T &#x26;&#x26;x) { return y(x); }
+template &#x3C;class T&#x3E; int g(T &#x26;&#x26;x) { return y(std::move(x)); }
+template &#x3C;class T&#x3E; int h(T &#x26;&#x26;x) { return y(std::forward&#x3C;T&#x3E;(x)); }
+
+int main() {
+  int i = 10;
+  std::cout &#x3C;&#x3C; f(i) &#x3C;&#x3C; f(20);
+  std::cout &#x3C;&#x3C; g(i) &#x3C;&#x3C; g(20);
+  std::cout &#x3C;&#x3C; h(i) &#x3C;&#x3C; h(20);
+  return 0;
+}
+
+
+	</Code>
+	<Answer correct_option="2" answer="sdfiweyr"/>
+	<Level>
+Intermediate
+
+
+	</Level>
+	</Element>
+</Root>
