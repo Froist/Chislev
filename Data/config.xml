@@ -1,4 +1,6 @@
 <root name="config.xml">
-	<subject name="C++ Quiz" code="cpp" location="https://raw.githubusercontent.com/Froist/Chislev/master/Data/cpp/question.xml" filename="question.xml" new_filename="question.xml" />
-	<subject name="Java Quiz" code="java" location="https://raw.githubusercontent.com/Froist/Chislev/master/Data/java/question.xml" filename="question.xml" new_filename="question.xml" />
+	<subject name="C++ Quiz" code="cpp" location="https://raw.githubusercontent.com/Froist/Chislev/master/Data/cpp/question.xml" filename="question.xml" new_filename="question.xml"
+	icon="https://raw.githubusercontent.com/Froist/Chislev/master/Data/cpp/icon.png"/>
+	<subject name="Java Quiz" code="java" location="https://raw.githubusercontent.com/Froist/Chislev/master/Data/java/question.xml" filename="question.xml" 
+	new_filename="question.xml" icon="https://raw.githubusercontent.com/Froist/Chislev/master/Data/java/icon.png"/>
 </root>
