@@ -19,12 +19,10 @@ According to the C++11 standard, what is output of the following code?
 
 	</Question>
 	<Options>
-The program is guaranteed to output
-The program has a compilation error
-The program is unspecified/implementation defined
-The program is undefined
-
-
+		<option value="The program is guaranteed to output"/>
+		<option value="The program has a compilation error"/>
+		<option value="The program is unspecified/implementation defined"/>
+		<option value="The program is undefined"/>
 	</Options>
 	<Code>
 #include &#x3C;iostream&#x3E;
@@ -34,7 +32,6 @@ int a;
 int main () {
     std::cout &#x3C;&#x3C; a;
 }
-
 
 	</Code>
 	<Level>
@@ -67,12 +64,10 @@ According to the C++11 standard, what is output of the following code?
 
 	</Question>
 	<Options>
-The program is guaranteed to output
-The program has a compilation error
-The program is unspecified/implementation defined
-The program is undefined
-
-
+		<option value="The program is guaranteed to output"/>
+		<option value="The program has a compilation error"/>
+		<option value="The program is unspecified/implementation defined"/>
+		<option value="The program is undefined"/>
 	</Options>
 	<Code>
 #include &#x3C;iostream&#x3E;
@@ -116,13 +111,12 @@ According to the C++11 standard, what is output of the following code?
 
 	</Question>
 	<Options>
-The program is guaranteed to output
-The program has a compilation error
-The program is unspecified/implementation defined
-The program is undefined
-
-
+		<option value="The program is guaranteed to output"/>
+		<option value="The program has a compilation error"/>
+		<option value="The program is unspecified/implementation defined"/>
+		<option value="The program is undefined"/>
 	</Options>
+
 	<Code>
 #include &#x3C;iostream&#x3E;
 
@@ -175,13 +169,12 @@ According to the C++11 standard, what is output of the following code?
 	</Question>
 	<Answer correct_option="4"/>
 	<Options>
-The program is guaranteed to output
-The program has a compilation error
-The program is unspecified/implementation defined
-The program is undefined
-
-
+		<option value="The program is guaranteed to output"/>
+		<option value="The program has a compilation error"/>
+		<option value="The program is unspecified/implementation defined"/>
+		<option value="The program is undefined"/>
 	</Options>
+
 	<Code>
 #include &#x3C;iostream&#x3E;
 using namespace std;
@@ -250,12 +243,10 @@ According to the C++11 standard, what is output of the following code?
 
 	</Question>
 	<Options>
-The program is guaranteed to output
-The program has a compilation error
-The program is unspecified/implementation defined
-The program is undefined
-
-
+		<option value="The program is guaranteed to output"/>
+		<option value="The program has a compilation error"/>
+		<option value="The program is unspecified/implementation defined"/>
+		<option value="The program is undefined"/>
 	</Options>
 	<Code>
 #include &#x3C;iostream&#x3E;
@@ -303,12 +294,10 @@ According to the C++11 standard, what is output of the following code?
 
 	</Question>
 	<Options>
-The program is guaranteed to output
-The program has a compilation error
-The program is unspecified/implementation defined
-The program is undefined
-
-
+		<option value="The program is guaranteed to output"/>
+		<option value="The program has a compilation error"/>
+		<option value="The program is unspecified/implementation defined"/>
+		<option value="The program is undefined"/>
 	</Options>
 	<Code>
 #include &#x3C;iostream&#x3E;
@@ -361,12 +350,10 @@ According to the C++11 standard, what is output of the following code?
 
 	</Question>
 	<Options>
-The program is guaranteed to output
-The program has a compilation error
-The program is unspecified/implementation defined
-The program is undefined
-
-
+		<option value="The program is guaranteed to output"/>
+		<option value="The program has a compilation error"/>
+		<option value="The program is unspecified/implementation defined"/>
+		<option value="The program is undefined"/>
 	</Options>
 	<Code>
 #include &#x3C;iostream&#x3E;
