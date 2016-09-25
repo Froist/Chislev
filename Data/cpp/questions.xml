@@ -1,22 +1,16 @@
 <Root total_element="7">
-	<Element index="1">
+	<Element index="1" reference_id="00000001">
 	<Explanation>
 Since a has static storage duration and no initializer, it is guaranteed to be zero-initialized. Had a been defined as a local non-static variable inside main(), this would not have happened.
 
 Note: int a has static storage duration because it is declared at namespace scope. It does not need to have static in front of it, that would only denote internal linkage.
-
-
 	</Explanation>
 	<Hint>
 Is a static? And what do we mean by &#x22;static&#x22; anyway? Think about the difference between static storage duration and external linkage.
-
-
 	</Hint>
 	<Answer correct_option="1" answer="12234"/>
 	<Question>
 According to the C++11 standard, what is output of the following code?
-
-
 	</Question>
 	<Options>
 		<option value="The program is guaranteed to output"/>
@@ -25,6 +19,8 @@ According to the C++11 standard, what is output of the following code?
 		<option value="The program is undefined"/>
 	</Options>
 	<Code>
+<![CDATA[
+<pre>
 #include &#x3C;iostream&#x3E;
 
 int a;
@@ -32,15 +28,12 @@ int a;
 int main () {
     std::cout &#x3C;&#x3C; a;
 }
-
+</pre>
+]]>
 	</Code>
-	<Level>
-Intermediate
-
-
-	</Level>
+	<Level value = "Intermediate"/>
 	</Element>
-	<Element index="2">
+	<Element index="2" reference_id="00000002">
 	<Explanation>
 The first line in main(), X x; is straightforward, it calls the default constructor.
 
@@ -70,6 +63,8 @@ According to the C++11 standard, what is output of the following code?
 		<option value="The program is undefined"/>
 	</Options>
 	<Code>
+<![CDATA[
+<pre>
 #include &#x3C;iostream&#x3E;
 
 struct X {
@@ -87,16 +82,12 @@ int main() {
   X z = y;
   z = x;
 }
-
-
+</pre>
+]]>
 	</Code>
-	<Level>
-Intermediate
-
-
-	</Level>
+	<Level value ="Intermediate"/>
 	</Element>
-	<Element index="3">
+	<Element index="3" reference_id="00000003">
 	<Explanation>
 As defined in &#xA7;3.3.2&#xB6;1, the point of name declaration is after its complete declarator and before its initialisation. This means that line 4 is valid C++, because it&#x27;s possible to initialise the variable p with the address of an existing variable, even if it is its own address.
 
@@ -118,22 +109,22 @@ According to the C++11 standard, what is output of the following code?
 	</Options>
 
 	<Code>
+<![CDATA[
+<pre>
+
 #include &#x3C;iostream&#x3E;
 
 int main() {
   void * p = &#x26;p;
   std::cout &#x3C;&#x3C; bool(p);
 }
-
+</pre>
+]]>
 
 	</Code>
-	<Level>
-Intermediate
-
-
-	</Level>
+	<Level value="Intermediate"/>
 	</Element>
-	<Element index="4">
+	<Element index="4" reference_id="00000004">
 	<Explanation>
 This question The program is guaranteed to output:.
 
@@ -176,6 +167,9 @@ According to the C++11 standard, what is output of the following code?
 	</Options>
 
 	<Code>
+<![CDATA[
+<pre>
+
 #include &#x3C;iostream&#x3E;
 using namespace std;
 
@@ -206,15 +200,12 @@ int main ()
   call_adl(S());
 }
 
-
+</pre>
+]]>
 	</Code>
-	<Level>
-Hard
-
-
-	</Level>
+	<Level value="Hard" />
 	</Element>
-	<Element index="5">
+	<Element index="5" reference_id="00000005">
 	<Explanation>
 Sneaky ambiguous function call.
 
@@ -233,8 +224,6 @@ In our case, both are standard conversion sequences with a single conversion of 
 	<Hint>
 Which type should 0 be converted to? Is one conversion better than the 
 other?
-
-
 	</Hint>
 	<Answer correct_option="1" answer="89Ab"/>
 	<Question>
@@ -249,6 +238,9 @@ According to the C++11 standard, what is output of the following code?
 		<option value="The program is undefined"/>
 	</Options>
 	<Code>
+<![CDATA[
+<pre>
+
 #include &#x3C;iostream&#x3E;
 
 void print(char const *str) { std::cout &#x3C;&#x3C; str; }
@@ -259,16 +251,12 @@ int main() {
   print(0);
   print(&#x27;A&#x27;);
 }
-
-
+</pre>
+]]>
 	</Code>
-	<Level>
-Beginner
-
-
-	</Level>
+	<Level value="Beginner" />
 	</Element>
-	<Element index="6">
+	<Element index="6" reference_id="00000006">
 	<Explanation>
 Since C++11 (&#xA7;23.3.6.2&#xB6;3 in the standard), std::vector has a one parameter constructor
 
@@ -300,6 +288,8 @@ According to the C++11 standard, what is output of the following code?
 		<option value="The program is undefined"/>
 	</Options>
 	<Code>
+<![CDATA[
+<pre>
 #include &#x3C;iostream&#x3E;
 #include &#x3C;vector&#x3E;
 
@@ -313,16 +303,12 @@ int main()
 {
     std::vector&#x3C;Foo&#x3E; bar(5);
 }
-
-
+</pre>
+]]>
 	</Code>
-	<Level>
-Beginner
-
-
-	</Level>
+	<Level value="Beginner"/>
 	</Element>
-	<Element index="7">
+	<Element index="7" reference_id="00000007">
 	<Explanation>
 The T&#x26;&#x26; in the the templated functions do not necessarily denote an rvalue reference, it depends on the type that is used to instantiate the template. If instantiated with an lvalue, it collapses to an lvalue reference, if instantiated with an rvalue, it collapses to an rvalue reference. See note [1].
 
@@ -356,6 +342,8 @@ According to the C++11 standard, what is output of the following code?
 		<option value="The program is undefined"/>
 	</Options>
 	<Code>
+<![CDATA[
+<pre>
 #include &#x3C;iostream&#x3E;
 #include &#x3C;utility&#x3E;
 
@@ -373,14 +361,11 @@ int main() {
   std::cout &#x3C;&#x3C; h(i) &#x3C;&#x3C; h(20);
   return 0;
 }
-
+</pre>
+]]>
 
 	</Code>
 	<Answer correct_option="2" answer="sdfiweyr"/>
-	<Level>
-Intermediate
-
-
-	</Level>
+	<Level value="Intermediate" />
 	</Element>
 </Root>
