@@ -1,5 +1,5 @@
-<Root total_element="7">
-	<Element index="1" reference_id="00000001">
+<Root total_elements="7">
+	<Element reference_id="8">
 	<Explanation>
 Since a has static storage duration and no initializer, it is guaranteed to be zero-initialized. Had a been defined as a local non-static variable inside main(), this would not have happened.
 
@@ -21,19 +21,17 @@ According to the C++11 standard, what is output of the following code?
 	<Code>
 <![CDATA[
 <pre>
-#include &#x3C;iostream&#x3E;
-
-int a;
-
-int main () {
-    std::cout &#x3C;&#x3C; a;
-}
+#include &#x3C;iostream&#x3E;<br>
+int a;<br>
+int main () {<br>
+    std::cout &#x3C;&#x3C; a;<br>
+}<br>
 </pre>
 ]]>
 	</Code>
-	<Level value = "Intermediate"/>
+	<Level value="Intermediate"/>
 	</Element>
-	<Element index="2" reference_id="00000002">
+	<Element reference_id="9">
 	<Explanation>
 The first line in main(), X x; is straightforward, it calls the default constructor.
 
@@ -42,19 +40,13 @@ The next two lines is the heart of the question: The difference between X y(x) a
 &#xA7;8.5.16 says: &#x22;If the initialization is direct-initialization, or if it is copy-initialization where the (...) source type is the same class as (...) the class of the destination, constructors are considered.&#x22; So both our cases use the copy constructor.
 
 Not until z = x; do we have an actual assignment that uses the assignment operator. See http://stackoverflow.com/questions/1051379/is-there-a-difference-in-c-between-copy-initialization-and-direct-initializati/1051468#1051468 for a more detailed discussion of direct vs. copy initialization.
-
-
 	</Explanation>
 	<Hint>
 What is the difference between direct initialization and copy initialization? Do they in any way relate to the copy constructor and copy assignment operator?
-
-
 	</Hint>
 	<Answer correct_option="2"/>
 	<Question>
 According to the C++11 standard, what is output of the following code?
-
-
 	</Question>
 	<Options>
 		<option value="The program is guaranteed to output"/>
@@ -65,41 +57,35 @@ According to the C++11 standard, what is output of the following code?
 	<Code>
 <![CDATA[
 <pre>
-#include &#x3C;iostream&#x3E;
-
-struct X {
-  X() { std::cout &#x3C;&#x3C; &#x22;a&#x22;; }
-  X(const X &#x26;x) { std::cout &#x3C;&#x3C; &#x22;b&#x22;; }
-  const X &#x26;operator=(const X &#x26;x) {
-    std::cout &#x3C;&#x3C; &#x22;c&#x22;;
-    return *this;
-  }
-};
-
-int main() {
-  X x;
-  X y(x);
-  X z = y;
-  z = x;
-}
+#include &#x3C;iostream&#x3E;<br>
+struct X {<br>
+  X() { std::cout &#x3C;&#x3C; &#x22;a&#x22;; }<br>
+  X(const X &#x26;x) { std::cout &#x3C;&#x3C; &#x22;b&#x22;; }<br>
+  const X &#x26;operator=(const X &#x26;x) {<br>
+    std::cout &#x3C;&#x3C; &#x22;c&#x22;;<br>
+    return *this;<br>
+  }<br>
+};<br>
+int main() {<br>
+  X x;<br>
+  X y(x);<br>
+  X z = y;<br>
+  z = x;<br>
+}<br>
 </pre>
 ]]>
 	</Code>
-	<Level value ="Intermediate"/>
+	<Level value="Intermediate"/>
 	</Element>
-	<Element index="3" reference_id="00000003">
+	<Element reference_id="10">
 	<Explanation>
 As defined in &#xA7;3.3.2&#xB6;1, the point of name declaration is after its complete declarator and before its initialisation. This means that line 4 is valid C++, because it&#x27;s possible to initialise the variable p with the address of an existing variable, even if it is its own address.
 
 The value of p is unknown, but can not be a null pointer value. The cast must thus evaluate to 1 and initialise the temporary bool as true.
-
-
 	</Explanation>
 	<Answer correct_option="3"/>
 	<Question>
 According to the C++11 standard, what is output of the following code?
-
-
 	</Question>
 	<Options>
 		<option value="The program is guaranteed to output"/>
@@ -107,24 +93,20 @@ According to the C++11 standard, what is output of the following code?
 		<option value="The program is unspecified/implementation defined"/>
 		<option value="The program is undefined"/>
 	</Options>
-
 	<Code>
 <![CDATA[
 <pre>
-
-#include &#x3C;iostream&#x3E;
-
-int main() {
-  void * p = &#x26;p;
-  std::cout &#x3C;&#x3C; bool(p);
-}
+#include &#x3C;iostream&#x3E;<br>
+int main() {<br>
+  void * p = &#x26;p;<br>
+  std::cout &#x3C;&#x3C; bool(p);<br>
+}<br>
 </pre>
 ]]>
-
 	</Code>
 	<Level value="Intermediate"/>
 	</Element>
-	<Element index="4" reference_id="00000004">
+	<Element reference_id="11">
 	<Explanation>
 This question The program is guaranteed to output:.
 
@@ -145,18 +127,12 @@ The first call to adl is a non-dependent call, so it is looked up at the time of
 When adl is being looked up at the time of definition of the function template, the only version of adl that exists is the templated adl(T). Specifically, adl(S) does not exist yet, and is not a candidate.
 
 Note: At the time of writing, this program does not confirm to the standard in some recent versions of Visual Studio&#x27;s C++ compiler.
-
-
 	</Explanation>
 	<Hint>
 Unqualified names are resolved at different times depending on whether they are dependent or independent on a template parameter.
-
-
 	</Hint>
 	<Question>
 According to the C++11 standard, what is output of the following code?
-
-
 	</Question>
 	<Answer correct_option="4"/>
 	<Options>
@@ -165,47 +141,39 @@ According to the C++11 standard, what is output of the following code?
 		<option value="The program is unspecified/implementation defined"/>
 		<option value="The program is undefined"/>
 	</Options>
-
 	<Code>
 <![CDATA[
 <pre>
-
-#include &#x3C;iostream&#x3E;
-using namespace std;
-
-template&#x3C;typename T&#x3E;
-void adl(T)
-{
-  cout &#x3C;&#x3C; &#x22;T&#x22;;
-}
-
-struct S
-{
-};
-
-template&#x3C;typename T&#x3E;
-void call_adl(T t)
-{
-  adl(S());
-  adl(t);
-}
-
-void adl(S)
-{
-  cout &#x3C;&#x3C; &#x22;S&#x22;;
-}
-
-int main ()
-{
-  call_adl(S());
-}
-
+#include &#x3C;iostream&#x3E;<br>
+using namespace std;<br>
+template&#x3C;typename T&#x3E;<br>
+void adl(T)<br>
+{<br>
+  cout &#x3C;&#x3C; &#x22;T&#x22;;<br>
+}<br>
+struct S<br>
+{<br>
+};<br>
+template&#x3C;typename T&#x3E;<br>
+void call_adl(T t)<br>
+{<br>
+  adl(S());<br>
+  adl(t);<br>
+}<br>
+void adl(S)<br>
+{<br>
+  cout &#x3C;&#x3C; &#x22;S&#x22;;<br>
+}<br>
+int main ()<br>
+{<br>
+  call_adl(S());<br>
+}<br>
 </pre>
 ]]>
 	</Code>
-	<Level value="Hard" />
+	<Level value="Hard"/>
 	</Element>
-	<Element index="5" reference_id="00000005">
+	<Element reference_id="12">
 	<Explanation>
 Sneaky ambiguous function call.
 
@@ -218,8 +186,6 @@ The statement print(0); is ambiguous due to overload resolution rules. Both prin
 In our case, both are standard conversion sequences with a single conversion of &#x22;conversion rank&#x22;. Since no function is better than the other, the call is ill-formed.
 
 [1] &#xA7;4.10&#xB6;1 A null pointer constant is an integral constant expression (5.19) prvalue of integer type that evaluates to zero(...) A null pointer constant can be converted to a pointer type.
-
-
 	</Explanation>
 	<Hint>
 Which type should 0 be converted to? Is one conversion better than the 
@@ -228,8 +194,6 @@ other?
 	<Answer correct_option="1" answer="89Ab"/>
 	<Question>
 According to the C++11 standard, what is output of the following code?
-
-
 	</Question>
 	<Options>
 		<option value="The program is guaranteed to output"/>
@@ -240,23 +204,20 @@ According to the C++11 standard, what is output of the following code?
 	<Code>
 <![CDATA[
 <pre>
-
-#include &#x3C;iostream&#x3E;
-
-void print(char const *str) { std::cout &#x3C;&#x3C; str; }
-void print(short num) { std::cout &#x3C;&#x3C; num; }
-
-int main() {
-  print(&#x22;abc&#x22;);
-  print(0);
-  print(&#x27;A&#x27;);
-}
+#include &#x3C;iostream&#x3E;<br>
+void print(char const *str) { std::cout &#x3C;&#x3C; str; }<br>
+void print(short num) { std::cout &#x3C;&#x3C; num; }<br>
+int main() {<br>
+  print(&#x22;abc&#x22;);<br>
+  print(0);<br>
+  print(&#x27;A&#x27;);<br>
+}<br>
 </pre>
 ]]>
 	</Code>
-	<Level value="Beginner" />
+	<Level value="Beginner"/>
 	</Element>
-	<Element index="6" reference_id="00000006">
+	<Element reference_id="13">
 	<Explanation>
 Since C++11 (&#xA7;23.3.6.2&#xB6;3 in the standard), std::vector has a one parameter constructor
 
@@ -267,19 +228,13 @@ which constructs a vector with n value-initialized elements. Each value-initiali
 The &#x22;trick&#x22; is, that before C++11, std::vector had a 2 parameter constructor ( + allocator ), which constructed the container with n copies of the second parameter, which is defaulted to T().
 
 So this code before C++11 would output abbbbb, because the call would be equivalent to std::vector&#x3C;Foo&#x3E; bar(5,T()).
-
-
 	</Explanation>
 	<Hint>
 Which vector constructor will be called?
-
-
 	</Hint>
 	<Answer correct_option="3"/>
 	<Question>
 According to the C++11 standard, what is output of the following code?
-
-
 	</Question>
 	<Options>
 		<option value="The program is guaranteed to output"/>
@@ -290,25 +245,23 @@ According to the C++11 standard, what is output of the following code?
 	<Code>
 <![CDATA[
 <pre>
-#include &#x3C;iostream&#x3E;
-#include &#x3C;vector&#x3E;
-
-struct Foo
-{
-    Foo() { std::cout&#x3C;&#x3C;&#x22;a&#x22;; }
-    Foo(const Foo&#x26;) { std::cout&#x3C;&#x3C;&#x22;b&#x22;; }
-};
-
-int main()
-{
-    std::vector&#x3C;Foo&#x3E; bar(5);
-}
+#include &#x3C;iostream&#x3E;<br>
+#include &#x3C;vector&#x3E;<br>
+struct Foo<br>
+{<br>
+    Foo() { std::cout&#x3C;&#x3C;&#x22;a&#x22;; }<br>
+    Foo(const Foo&#x26;) { std::cout&#x3C;&#x3C;&#x22;b&#x22;; }<br>
+};<br>
+int main()<br>
+{<br>
+    std::vector&#x3C;Foo&#x3E; bar(5);<br>
+}<br>
 </pre>
 ]]>
 	</Code>
 	<Level value="Beginner"/>
 	</Element>
-	<Element index="7" reference_id="00000007">
+	<Element reference_id="14">
 	<Explanation>
 The T&#x26;&#x26; in the the templated functions do not necessarily denote an rvalue reference, it depends on the type that is used to instantiate the template. If instantiated with an lvalue, it collapses to an lvalue reference, if instantiated with an rvalue, it collapses to an rvalue reference. See note [1].
 
@@ -323,17 +276,12 @@ In this example, all three functions are called once with an lvalue and once wit
 Note [1]: &#xA7;8.3.2&#xB6;6 in the standard: &#x22;If a (...) type template-parameter (&#xA7;14.3.1) (...) denotes a type TR that is a reference to a type T, an attempt to create the type &#x201C;lvalue reference to cv TR&#x201D; creates the type &#x201C;lvalue reference to T&#x201D;, while an attempt to create the type &#x201C;rvalue reference to cv TR&#x201D; creates the type TR.&#x22; The example at the end of that paragraph is is worth a look.
 
 Note from the contributor: This demonstrates Scott Meyers&#x27;s advice that use std::forward for universal references, and std::move for rvalue references.
-
 	</Explanation>
 	<Hint>
 The T&#x26;&#x26; in the the templated functions do not necessarily denote an rvalue reference, it depends on the type that is used to instantiate the template. If instantiated with an lvalue, it collapses to an lvalue reference, if instantiated with an rvalue, it collapses to an rvalue reference.
-
-
 	</Hint>
 	<Question>
 According to the C++11 standard, what is output of the following code?
-
-
 	</Question>
 	<Options>
 		<option value="The program is guaranteed to output"/>
@@ -344,28 +292,24 @@ According to the C++11 standard, what is output of the following code?
 	<Code>
 <![CDATA[
 <pre>
-#include &#x3C;iostream&#x3E;
-#include &#x3C;utility&#x3E;
-
-int y(int &#x26;) { return 1; }
-int y(int &#x26;&#x26;) { return 2; }
-
-template &#x3C;class T&#x3E; int f(T &#x26;&#x26;x) { return y(x); }
-template &#x3C;class T&#x3E; int g(T &#x26;&#x26;x) { return y(std::move(x)); }
-template &#x3C;class T&#x3E; int h(T &#x26;&#x26;x) { return y(std::forward&#x3C;T&#x3E;(x)); }
-
-int main() {
-  int i = 10;
-  std::cout &#x3C;&#x3C; f(i) &#x3C;&#x3C; f(20);
-  std::cout &#x3C;&#x3C; g(i) &#x3C;&#x3C; g(20);
-  std::cout &#x3C;&#x3C; h(i) &#x3C;&#x3C; h(20);
-  return 0;
-}
+#include &#x3C;iostream&#x3E;<br>
+#include &#x3C;utility&#x3E;<br>
+int y(int &#x26;) { return 1; }<br>
+int y(int &#x26;&#x26;) { return 2; }<br>
+template &#x3C;class T&#x3E; int f(T &#x26;&#x26;x) { return y(x); }<br>
+template &#x3C;class T&#x3E; int g(T &#x26;&#x26;x) { return y(std::move(x)); }<br>
+template &#x3C;class T&#x3E; int h(T &#x26;&#x26;x) { return y(std::forward&#x3C;T&#x3E;(x)); }<br>
+int main() {<br>
+  int i = 10;<br>
+  std::cout &#x3C;&#x3C; f(i) &#x3C;&#x3C; f(20);<br>
+  std::cout &#x3C;&#x3C; g(i) &#x3C;&#x3C; g(20);<br>
+  std::cout &#x3C;&#x3C; h(i) &#x3C;&#x3C; h(20);<br>
+  return 0;<br>
+}<br>
 </pre>
 ]]>
-
 	</Code>
 	<Answer correct_option="2" answer="sdfiweyr"/>
-	<Level value="Intermediate" />
+	<Level value="Intermediate"/>
 	</Element>
 </Root>
