@@ -8,7 +8,6 @@ Note: int a has static storage duration because it is declared at namespace scop
 	<Hint>
 Is a static? And what do we mean by &#x22;static&#x22; anyway? Think about the difference between static storage duration and external linkage.
 	</Hint>
-	<Answer correct_option="1" answer="12234"/>
 	<Question>
 According to the C++11 standard, what is output of the following code?
 	</Question>
@@ -44,7 +43,6 @@ Not until z = x; do we have an actual assignment that uses the assignment operat
 	<Hint>
 What is the difference between direct initialization and copy initialization? Do they in any way relate to the copy constructor and copy assignment operator?
 	</Hint>
-	<Answer correct_option="2"/>
 	<Question>
 According to the C++11 standard, what is output of the following code?
 	</Question>
@@ -83,7 +81,6 @@ As defined in &#xA7;3.3.2&#xB6;1, the point of name declaration is after its com
 
 The value of p is unknown, but can not be a null pointer value. The cast must thus evaluate to 1 and initialise the temporary bool as true.
 	</Explanation>
-	<Answer correct_option="3"/>
 	<Question>
 According to the C++11 standard, what is output of the following code?
 	</Question>
@@ -134,7 +131,6 @@ Unqualified names are resolved at different times depending on whether they are 
 	<Question>
 According to the C++11 standard, what is output of the following code?
 	</Question>
-	<Answer correct_option="4"/>
 	<Options>
 		<option value="The program is guaranteed to output"/>
 		<option value="The program has a compilation error"/>
@@ -191,7 +187,6 @@ In our case, both are standard conversion sequences with a single conversion of 
 Which type should 0 be converted to? Is one conversion better than the 
 other?
 	</Hint>
-	<Answer correct_option="1" answer="89Ab"/>
 	<Question>
 According to the C++11 standard, what is output of the following code?
 	</Question>
@@ -232,7 +227,6 @@ So this code before C++11 would output abbbbb, because the call would be equival
 	<Hint>
 Which vector constructor will be called?
 	</Hint>
-	<Answer correct_option="3"/>
 	<Question>
 According to the C++11 standard, what is output of the following code?
 	</Question>
@@ -309,7 +303,6 @@ int main() {<br>
 </pre>
 ]]>
 	</Code>
-	<Answer correct_option="2" answer="sdfiweyr"/>
 	<Level value="Intermediate"/>
 	</Element>
 </Root>

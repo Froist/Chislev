@@ -1,5 +1,5 @@
 <Root total_elements="7">
-	<Element reference_id="8">
+	<Element reference_id="1">
 	<Explanation>
 Since a has static storage duration and no initializer, it is guaranteed to be zero-initialized. Had a been defined as a local non-static variable inside main(), this would not have happened.
 
@@ -8,7 +8,6 @@ Note: int a has static storage duration because it is declared at namespace scop
 	<Hint>
 Is a static? And what do we mean by &#x22;static&#x22; anyway? Think about the difference between static storage duration and external linkage.
 	</Hint>
-	<Answer correct_option="1" answer="12234"/>
 	<Question>
 According to the C++11 standard, what is output of the following code?
 	</Question>
@@ -31,7 +30,7 @@ int main () {<br>
 	</Code>
 	<Level value="Intermediate"/>
 	</Element>
-	<Element reference_id="9">
+	<Element reference_id="2">
 	<Explanation>
 The first line in main(), X x; is straightforward, it calls the default constructor.
 
@@ -44,7 +43,6 @@ Not until z = x; do we have an actual assignment that uses the assignment operat
 	<Hint>
 What is the difference between direct initialization and copy initialization? Do they in any way relate to the copy constructor and copy assignment operator?
 	</Hint>
-	<Answer correct_option="2"/>
 	<Question>
 According to the C++11 standard, what is output of the following code?
 	</Question>
@@ -77,13 +75,12 @@ int main() {<br>
 	</Code>
 	<Level value="Intermediate"/>
 	</Element>
-	<Element reference_id="10">
+	<Element reference_id="3">
 	<Explanation>
 As defined in &#xA7;3.3.2&#xB6;1, the point of name declaration is after its complete declarator and before its initialisation. This means that line 4 is valid C++, because it&#x27;s possible to initialise the variable p with the address of an existing variable, even if it is its own address.
 
 The value of p is unknown, but can not be a null pointer value. The cast must thus evaluate to 1 and initialise the temporary bool as true.
 	</Explanation>
-	<Answer correct_option="3"/>
 	<Question>
 According to the C++11 standard, what is output of the following code?
 	</Question>
@@ -106,7 +103,7 @@ int main() {<br>
 	</Code>
 	<Level value="Intermediate"/>
 	</Element>
-	<Element reference_id="11">
+	<Element reference_id="4">
 	<Explanation>
 This question The program is guaranteed to output:.
 
@@ -134,7 +131,6 @@ Unqualified names are resolved at different times depending on whether they are 
 	<Question>
 According to the C++11 standard, what is output of the following code?
 	</Question>
-	<Answer correct_option="4"/>
 	<Options>
 		<option value="The program is guaranteed to output"/>
 		<option value="The program has a compilation error"/>
@@ -173,7 +169,7 @@ int main ()<br>
 	</Code>
 	<Level value="Hard"/>
 	</Element>
-	<Element reference_id="12">
+	<Element reference_id="5">
 	<Explanation>
 Sneaky ambiguous function call.
 
@@ -191,7 +187,6 @@ In our case, both are standard conversion sequences with a single conversion of 
 Which type should 0 be converted to? Is one conversion better than the 
 other?
 	</Hint>
-	<Answer correct_option="1" answer="89Ab"/>
 	<Question>
 According to the C++11 standard, what is output of the following code?
 	</Question>
@@ -217,7 +212,7 @@ int main() {<br>
 	</Code>
 	<Level value="Beginner"/>
 	</Element>
-	<Element reference_id="13">
+	<Element reference_id="6">
 	<Explanation>
 Since C++11 (&#xA7;23.3.6.2&#xB6;3 in the standard), std::vector has a one parameter constructor
 
@@ -232,7 +227,6 @@ So this code before C++11 would output abbbbb, because the call would be equival
 	<Hint>
 Which vector constructor will be called?
 	</Hint>
-	<Answer correct_option="3"/>
 	<Question>
 According to the C++11 standard, what is output of the following code?
 	</Question>
@@ -261,7 +255,7 @@ int main()<br>
 	</Code>
 	<Level value="Beginner"/>
 	</Element>
-	<Element reference_id="14">
+	<Element reference_id="7">
 	<Explanation>
 The T&#x26;&#x26; in the the templated functions do not necessarily denote an rvalue reference, it depends on the type that is used to instantiate the template. If instantiated with an lvalue, it collapses to an lvalue reference, if instantiated with an rvalue, it collapses to an rvalue reference. See note [1].
 
@@ -309,7 +303,6 @@ int main() {<br>
 </pre>
 ]]>
 	</Code>
-	<Answer correct_option="2" answer="sdfiweyr"/>
 	<Level value="Intermediate"/>
 	</Element>
 </Root>

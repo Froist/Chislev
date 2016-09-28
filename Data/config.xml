@@ -1,6 +1,13 @@
-<root name="config.xml">
-	<subject name="C++ Quiz" code="cpp" location="https://raw.githubusercontent.com/Froist/Chislev/master/Data/cpp/questions.xml" filename="questions.xml" new_filename="questions.xml"
-	icon="https://raw.githubusercontent.com/Froist/Chislev/master/Data/cpp/icon.png"/>
-	<subject name="Java Quiz" code="java" location="https://raw.githubusercontent.com/Froist/Chislev/master/Data/java/questions.xml" filename="questions.xml" 
-	new_filename="questions.xml" icon="https://raw.githubusercontent.com/Froist/Chislev/master/Data/java/icon.png"/>
+<root name="config.xml" md5="c978feeb5b7b9abb332487575843794b">
+	
+	<subject name="C++" code="cpp" location="https://raw.githubusercontent.com/Froist/Chislev/master/Data/cpp/questions.xml"
+		filename="questions.xml" solution="https://raw.githubusercontent.com/Froist/Chislev/master/Data/cpp/solution.db"
+		icon="https://raw.githubusercontent.com/Froist/Chislev/master/Data/cpp/icon.png" 
+		detail="https://raw.githubusercontent.com/Froist/Chislev/master/Data/cpp/detail.xml" />
+	
+	<subject name="Java" code="java" location="https://raw.githubusercontent.com/Froist/Chislev/master/Data/java/questions.xml"
+		filename="questions.xml" solution="https://raw.githubusercontent.com/Froist/Chislev/master/Data/java/solution.db"
+		icon="https://raw.githubusercontent.com/Froist/Chislev/master/Data/java/icon.png" 
+		detail="https://raw.githubusercontent.com/Froist/Chislev/master/Data/java/detail.xml" />
+		
 </root>
