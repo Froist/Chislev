@@ -8,12 +8,5 @@
 	<subject name="Java" code="java" location="https://raw.githubusercontent.com/Froist/Chislev/master/Data/java/questions.xml"
 		filename="questions.xml" solution="https://raw.githubusercontent.com/Froist/Chislev/master/Data/java/solution.db"
 		icon="https://raw.githubusercontent.com/Froist/Chislev/master/Data/java/icon.png" 
-		detail="https://raw.githubusercontent.com/Froist/Chislev/master/Data/java/detail.xml" />
-	
-	<subject name="Python" code="python"
-		location="https://raw.githubusercontent.com/Froist/Chislev/master/Data/python/questions.xml"
-		filename="questions.xml" solution="https://raw.githubusercontent.com/Froist/Chislev/master/Data/python/solution.db"
-		icon="https://raw.githubusercontent.com/Froist/Chislev/master/Data/python/icon.png" 
-		detail="https://raw.githubusercontent.com/Froist/Chislev/master/Data/python/detail.xml" />
-		
+		detail="https://raw.githubusercontent.com/Froist/Chislev/master/Data/java/detail.xml" />	
 </root>

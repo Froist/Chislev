@@ -168,7 +168,6 @@ The initialization order of member variables is determined by their order of dec
 	<Question>
 According to the C++11 standard, what is output of the following code?
 	</Question>
-	<Level value="Beginner"/>
 	<Code>
 <![CDATA[
 <pre>
@@ -201,6 +200,7 @@ int main()<br>
 </pre>
 ]]>
 	</Code>
+	<Level value="Beginner"/>
 	<Hint>
 What determines the order of member variable initialization?
 	</Hint>
@@ -598,9 +598,18 @@ int main()<br>
 	<Explanation>
 Member variables are initialized before the constructor is called. The destructor is called before member variables are destroyed.
 	</Explanation>
+	<Hint>
+When are member variables initialized and destroyed?
+	</Hint>
 	<Question>
 According to the C++11 standard, what is output of the following code?
 	</Question>
+	<Options>
+		<option value="The program is guaranteed to output"/>
+		<option value="The program has a compilation error"/>
+		<option value="The program is unspecified/implementation defined"/>
+		<option value="The program is undefined"/>
+	</Options>
 	<Code>
 <![CDATA[
 <pre>
@@ -638,9 +647,6 @@ int main()<br>
 ]]>
 	</Code>
 	<Level value="Beginner"/>
-	<Hint>
-When are member variables initialized and destroyed?
-	</Hint>
 	</Element>
 	<Element reference_id="15">
 	<Explanation>
@@ -786,7 +792,12 @@ What does the standard have to say about signed integer overflow? Does it differ
 	<Question>
 According to the C++11 standard, what is output of the following code?
 	</Question>
-	<Level value="Intermediate"/>
+	<Options>
+		<option value="The program is guaranteed to output"/>
+		<option value="The program has a compilation error"/>
+		<option value="The program is unspecified/implementation defined"/>
+		<option value="The program is undefined"/>
+	</Options>
 	<Code>
 <![CDATA[
 <pre>
@@ -800,12 +811,7 @@ int main()<br>
 </pre>
 ]]>
 	</Code>
-	<Options>
-		<option value="The program is guaranteed to output"/>
-		<option value="The program has a compilation error"/>
-		<option value="The program is unspecified/implementation defined"/>
-		<option value="The program is undefined"/>
-	</Options>
+	<Level value="Intermediate"/>
 	</Element>
 	<Element reference_id="19">
 	<Explanation>
@@ -991,6 +997,12 @@ int main()<br>
 	<Level value="Intermediate"/>
 	</Element>
 	<Element reference_id="23">
+	<Options>
+		<option value="The program is guaranteed to output"/>
+		<option value="The program has a compilation error"/>
+		<option value="The program is unspecified/implementation defined"/>
+		<option value="The program is undefined"/>
+	</Options>
 	<Explanation>
 This program has no output. X x(); is a function prototype, not a variable definition. Remove the parentheses (or since C++11, replace them with {}), and the program will output X.
 	</Explanation>
@@ -1444,9 +1456,6 @@ When we don&#x27;t call get() on a future returned from async(), when is the asy
 	<Question>
 According to the C++11 standard, what is output of the following code?
 	</Question>
-	<Hint>
-When are temporaries destroyed? What happens if you bind a const reference to it?
-	</Hint>
 	<Code>
 <![CDATA[
 <pre>
@@ -1474,6 +1483,9 @@ int main()<br>
 ]]>
 	</Code>
 	<Level value="Intermediate"/>
+	<Hint>
+When are temporaries destroyed? What happens if you bind a const reference to it?
+	</Hint>
 	</Element>
 	<Element reference_id="35">
 	<Explanation>
@@ -1959,9 +1971,6 @@ X takes a template template parameter[1], meaning that any template argument for
 	<Question>
 According to the C++11 standard, what is output of the following code?
 	</Question>
-	<Hint>
-Is a template alias a new family of types?
-	</Hint>
 	<Code>
 <![CDATA[
 <pre>
@@ -1997,6 +2006,9 @@ int main()<br>
 ]]>
 	</Code>
 	<Level value="Hard"/>
+	<Hint>
+Is a template alias a new family of types?
+	</Hint>
 	</Element>
 	<Element reference_id="46">
 	<Explanation>
