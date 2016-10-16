@@ -1,4 +1,4 @@
 <root>
-	<solution filename="solution.db" md5="6e1617bf48c8637bf5035fe70f0d9642" />
-	<questions filename="questions.xml" md5="ea6bef3b32fdcccc38d9e7d59d472299" />
+	<solution filename="solutions.db" update_md5_value="6e1617bf48c8637bf5035fe70f0d9642" />
+	<question filename="questions.xml" update_md5_value="ea6bef3b32fdcccc38d9e7d59d472299" />
 </root>
